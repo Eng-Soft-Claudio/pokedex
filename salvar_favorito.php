@@ -15,7 +15,6 @@ if (empty($pokemon)) {
     exit();
 }
 
-// Verificar se o Pokémon já está nos favoritos
 $check_sql = "SELECT id FROM favoritos WHERE usuario_id = ? AND pokemon = ?";
 $check_stmt = $conn->prepare($check_sql);
 $check_stmt->bind_param("is", $usuario_id, $pokemon);

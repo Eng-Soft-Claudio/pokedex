@@ -63,15 +63,11 @@ if (isset($_GET['search'])) {
                     <?php endif; ?>
                 </div>
             </div>
-
-            <!-- Evoluções -->
             <div class="evolutions mt-4">
                 <h5>Evoluções:</h5>
                 <ul id="evolution-list"></ul>
             </div>
         <?php endif; ?>
-
-        <!-- Comparação de Pokémon -->
         <div class="comparison mt-4">
             <h5>Comparar Pokémon</h5>
             <form id="comparison-form">

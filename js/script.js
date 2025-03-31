@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const comparisonResult = document.getElementById('comparison-result');
     const evolutionList = document.getElementById('evolution-list');
 
-    // Validação de formulário
     searchForm.addEventListener('submit', function(event) {
         if (searchInput.value.trim() === "") {
             event.preventDefault();
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Busca dinâmica
     searchInput.addEventListener('input', function() {
         const query = searchInput.value.trim();
         if (query.length > 2) {
@@ -30,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Feedback visual
     function showMessage(message, type = 'success') {
         const messageElement = document.createElement('div');
         messageElement.className = `alert alert-${type}`;
@@ -42,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 3000);
     }
 
-    // Modo claro e escuro
     lightModeButton.addEventListener('click', function() {
         body.classList.remove('dark-mode');
         body.classList.add('light-mode');
@@ -53,12 +49,11 @@ document.addEventListener("DOMContentLoaded", function() {
         body.classList.add('dark-mode');
     });
 
-    // Função para buscar evoluções
     function fetchEvolutions(pokemonName) {
         fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonName}`)
             .then(response => response.json())
             .then(data => {
-                evolutionList.innerHTML = ''; // Limpar lista de evoluções
+                evolutionList.innerHTML = '';
                 fetch(data.evolution_chain.url)
                     .then(response => response.json())
                     .then(evolutionData => {
@@ -79,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 
-    // Função para comparar Pokémon
     comparisonForm.addEventListener('submit', function(event) {
         event.preventDefault();
         const pokemon1 = document.getElementById('pokemon1').value.toLowerCase();
@@ -102,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Buscar evoluções ao carregar a página
     if (window.pokemonData) {
         fetchEvolutions(window.pokemonData.name);
     }

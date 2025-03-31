@@ -5,8 +5,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = trim($_POST['nome']);
     $email = trim($_POST['email']);
     $senha = password_hash(trim($_POST['senha']), PASSWORD_DEFAULT);
-
-    // Verificar se o e-mail já existe
     $check_sql = "SELECT id FROM usuarios WHERE email = ?";
     $check_stmt = $conn->prepare($check_sql);
     $check_stmt->bind_param("s", $email);

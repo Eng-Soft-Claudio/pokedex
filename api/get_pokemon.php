@@ -12,7 +12,6 @@ if (isset($_GET['pokemon'])) {
         $pokemonData = json_decode($data, true);
 
         if ($pokemonData) {
-            // Retornar dados do Pokémon em formato JSON
             header('Content-Type: application/json');
             echo json_encode($pokemonData);
         } else {
